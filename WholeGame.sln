@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WholeGame", "WholeGame\WholeGame\WholeGame.csproj", "{7BE10A9A-1A27-41C4-9FF5-8561BEE1B3AD}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "WholeGameContent", "WholeGame\WholeGameContent\WholeGameContent.contentproj", "{BB8244BE-0FEF-47F7-AEFC-873FBC069BE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BE10A9A-1A27-41C4-9FF5-8561BEE1B3AD}.Debug|x86.ActiveCfg = Debug|x86
+		{7BE10A9A-1A27-41C4-9FF5-8561BEE1B3AD}.Debug|x86.Build.0 = Debug|x86
+		{7BE10A9A-1A27-41C4-9FF5-8561BEE1B3AD}.Release|x86.ActiveCfg = Release|x86
+		{7BE10A9A-1A27-41C4-9FF5-8561BEE1B3AD}.Release|x86.Build.0 = Release|x86
+		{BB8244BE-0FEF-47F7-AEFC-873FBC069BE9}.Debug|x86.ActiveCfg = Debug|x86
+		{BB8244BE-0FEF-47F7-AEFC-873FBC069BE9}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
