@@ -52,6 +52,9 @@ namespace WholeGame
             //myGameState.loadContent();
             WholeGame.Core.GameState_Handler.Instance.loadContent();
 
+
+            
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -76,6 +79,14 @@ namespace WholeGame
                 this.Exit();
 
             // TODO: Add your update logic here
+            //spriteBatch.Begin();
+
+            //spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
+            ////spriteBatch.Draw(background, new Rectangle(0, 0, 300, 480), Color.White);
+            ////_3DPrototype.GUI.Screens.GUI_Menu.draw();
+            //_3DPrototype.GUI.Screens.GUI_Menu.draw(spriteBatch);
+
+            //spriteBatch.End();
             
             base.Update(gameTime);
         }

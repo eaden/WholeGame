@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WholeGame.Core.GUI
 {
-    public enum ButtonState { Normal, MouseOver, Pressed };
+    public enum ButtonState_GUI { Normal, MouseOver, Pressed };
 
     //ListState (fuer Haendlermenu) hat noch selected mehr
 
