@@ -26,12 +26,6 @@ namespace WholeGame.Core.GUI
         //Hier die muss ich dann jeweils in die Mitte ins Menu setzen bei Aufruf oder letzter Mousepunkt! Jaaaa besser!
         public MouseState Mouse_GUI { get; set; }
 
-        // Ich glaube, hier brauche ich keinen old-Status. Erst immer bei der Nutzung
-        //public MouseState Mouse_Old_GUI { get; set; }
-
-        //Ueberall wo ich die Maus brauche:
-        //this.IsMouseVisible = true;
-        //Und anschließend wieder false
 
         public void loadContent()
         {

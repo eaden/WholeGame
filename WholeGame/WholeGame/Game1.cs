@@ -18,7 +18,8 @@ namespace WholeGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        SpriteBatch spriteBatch1;
+        public Texture2D background;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -46,11 +47,15 @@ namespace WholeGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            spriteBatch1 = new SpriteBatch(GraphicsDevice);
             //WholeGame.Core.GameState_Handler myGameState = WholeGame.Core.GameState_Handler.Instance;
 
-            //myGameState.loadContent();
-            WholeGame.Core.GameState_Handler.Instance.loadContent();
+            //myGameState.loadContent()
+            WholeGame.Core.GameState_Handler.Instance.loadContent(Content, spriteBatch);
+            background = Content.Load<Texture2D>("background");
+            this.IsMouseVisible = true;
+            //WholeGame.Core.GUI.Screens.Menu_GUI.Instance.loadContent(Content);
+
 
 
             
@@ -79,14 +84,8 @@ namespace WholeGame
                 this.Exit();
 
             // TODO: Add your update logic here
-            //spriteBatch.Begin();
-
-            //spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
-            ////spriteBatch.Draw(background, new Rectangle(0, 0, 300, 480), Color.White);
-            ////_3DPrototype.GUI.Screens.GUI_Menu.draw();
-            //_3DPrototype.GUI.Screens.GUI_Menu.draw(spriteBatch);
-
-            //spriteBatch.End();
+            WholeGame.Core.GameState_Handler.Instance.update();
+            //WholeGame.Core.GUI.Screens.Menu_GUI.Instance.update();
             
             base.Update(gameTime);
         }
@@ -100,6 +99,22 @@ namespace WholeGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
+            //spriteBatch1.Begin();
+            //spriteBatch1.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
+            //spriteBatch1.End();
+
+            //spriteBatch.Begin();
+            //WholeGame.Core.GUI.Screens.Menu_GUI.Instance.draw();
+            //spriteBatch.End();
+            WholeGame.Core.GameState_Handler.Instance.draw();
+
+            //spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
+            ////spriteBatch.Draw(background, new Rectangle(0, 0, 300, 480), Color.White);
+            ////_3DPrototype.GUI.Screens.GUI_Menu.draw();
+            //_3DPrototype.GUI.Screens.GUI_Menu.draw(spriteBatch);
+
+            
 
             base.Draw(gameTime);
         }

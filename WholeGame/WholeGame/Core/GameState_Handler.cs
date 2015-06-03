@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace WholeGame.Core
 {
@@ -17,35 +24,51 @@ namespace WholeGame.Core
                 if (instance == null)
                 {
                     instance = new GameState_Handler();
-                    Console.WriteLine("Ich wurde gerade erschaffen.");
+                    //Console.WriteLine("Ich wurde gerade erschaffen.");
                 }
-                else
-                    Console.WriteLine("Ich lebe noch.");
+                //else
+                    //Console.WriteLine("Ich lebe noch.");
                 return instance;
             }
         }
-
+        private SpriteBatch spritebatch;
         private GameStates_Overall GameState_Enum = GameStates_Overall.MenuScreen;
 
-        public void loadContent()
+        public void loadContent(ContentManager Content, SpriteBatch spritebatch)
         {
-            //Vielleicht alles ueber eigene Create-Methode in den Singletons
+            WholeGame.Core.GUI.Controls_GUI.Instance.loadContent();
+            WholeGame.Core.GUI.Screens.Menu_GUI.Instance.loadContent(Content);
             //Die Singletons sollten immer noch den nicht-Singletons initialisiert werden
+
+            this.spritebatch = spritebatch;
             
-            //WholeGame.Core.GUI.Controls_GUI controls_GUI = WholeGame.Core.GUI.Controls_GUI.Instance;
-            //WholeGame.Core.GUI.Controls_GUI.Instance.loadContent();
-            Console.WriteLine("Test test. lol");
             
         }
 
         public void update()
         {
-            //switch (switch_on)
-            //{
-            //    default:
-            //}
+            switch (GameState_Enum)
+            {
+                case GameStates_Overall.MenuScreen:
+                    WholeGame.Core.GUI.Controls_GUI.Instance.update();
+                    WholeGame.Core.GUI.Screens.Menu_GUI.Instance.update();
+                    break;
+                default:
+                    break;
+            }
         }
-           
-        
+
+        public void draw()
+        {
+            switch (GameState_Enum)
+            {
+                case GameStates_Overall.MenuScreen:
+                    
+                    WholeGame.Core.GUI.Screens.Menu_GUI.Instance.draw(spritebatch);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

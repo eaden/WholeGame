@@ -8,8 +8,4 @@ namespace WholeGame.Core.GUI
     public enum ButtonState_GUI { Normal, MouseOver, Pressed };
 
     //ListState (fuer Haendlermenu) hat noch selected mehr
-
-    class Enums_GUI
-    {
-    }
 }
