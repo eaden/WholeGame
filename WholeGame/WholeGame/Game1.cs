@@ -20,6 +20,13 @@ namespace WholeGame
         SpriteBatch spriteBatch;
         SpriteBatch spriteBatch1;
         public Texture2D background;
+
+        private Model model1;
+        private Model model2;
+        private Matrix world = Matrix.CreateTranslation(new Vector3(0, 0, 0));
+        private Matrix view = Matrix.CreateLookAt(new Vector3(0, 0, 10), new Vector3(0, 0, 0), Vector3.UnitY);
+        private Matrix projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45), 800f / 480f, 0.1f, 100f);
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -57,8 +64,11 @@ namespace WholeGame
             //WholeGame.Core.GUI.Screens.Menu_GUI.Instance.loadContent(Content);
 
 
+            //model1 = Content.Load<Model>("wuerfel11");
+            //model2 = Content.Load<Model>("wuerfel11");
 
-            
+            model1 = Content.Load<Model>("FloorPlate");
+            model2 = Content.Load<Model>("FloorPlate");
 
             // TODO: use this.Content to load your game content here
         }
@@ -108,6 +118,11 @@ namespace WholeGame
             //WholeGame.Core.GUI.Screens.Menu_GUI.Instance.draw();
             //spriteBatch.End();
             WholeGame.Core.GameState_Handler.Instance.draw();
+            GraphicsDevice.DepthStencilState = new DepthStencilState() { DepthBufferEnable = true };
+            DrawModel(model1, world, view, projection);
+            world = Matrix.CreateTranslation(new Vector3(1, 0, 0));
+            DrawModel(model2, world, view, projection);
+            world = Matrix.CreateTranslation(new Vector3(-1, 0, 0));
 
             //spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
             ////spriteBatch.Draw(background, new Rectangle(0, 0, 300, 480), Color.White);
@@ -117,6 +132,21 @@ namespace WholeGame
             
 
             base.Draw(gameTime);
+        }
+
+        private void DrawModel(Model model, Matrix world, Matrix view, Matrix projection)
+        {
+            foreach (ModelMesh mesh in model.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.World = world;
+                    effect.View = view;
+                    effect.Projection = projection;
+                }
+
+                mesh.Draw();
+            }
         }
     }
 }
