@@ -11,7 +11,6 @@ namespace WholeGame.Core.GUI
 {
     public class Platform
     {
-        public SpriteBatch menuSpritebatch;
         private List<Button_GUI> buttons = new List<Button_GUI>();        
         private MouseState mouseHandle;
         private MouseState mouseHandle_Old;

@@ -63,13 +63,13 @@ namespace WholeGame
             this.IsMouseVisible = true;
             //WholeGame.Core.GUI.Screens.Menu_GUI.Instance.loadContent(Content);
 
-
+            
             //model1 = Content.Load<Model>("wuerfel11");
             //model2 = Content.Load<Model>("wuerfel11");
 
             model1 = Content.Load<Model>("FloorPlate");
             model2 = Content.Load<Model>("FloorPlate");
-
+            
             // TODO: use this.Content to load your game content here
         }
 
